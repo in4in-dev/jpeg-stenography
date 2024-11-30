@@ -42,8 +42,7 @@ export default class Stenography
 		for (let i = 0; i < blocks.length; i++) {
 			for (let j = 0; j < 64; j++) {
 
-				let x = (j % 8), y = Math.floor(j / 8);
-				if(y > 2 || x > 3){
+				if(!this.canUseMatrixElement(j)){
 					continue;
 				}
 
@@ -75,8 +74,7 @@ export default class Stenography
 			for (let j = 0; j < 64; j++) {
 
 				//Берем только средние частоты
-				let x = (j % 8), y = Math.floor(j / 8);
-				if(y > 2 || x > 3){
+				if(!this.canUseMatrixElement(j)){
 					continue;
 				}
 
