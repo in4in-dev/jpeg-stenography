@@ -23,6 +23,15 @@ export default class Stenography
 		return crypto.createHash('sha256').update(key).digest();
 	}
 
+	protected canUseMatrixElement(j : number) : boolean
+	{
+
+		let x = (j % 8), y = Math.floor(j / 8);
+
+		return (y <= 2 && x <= 3);
+
+	}
+
 	protected unmask(blocks : number[][]) : Buffer
 	{
 
